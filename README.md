@@ -31,7 +31,7 @@ AES implementation in C and C# programming language for 128, 192 and 256-bits ke
   All inverse sbox values which is used in AES_Decrypt function in the header file.
   
   
-EXAMPLE:
+EXAMPLE (C-Programming):
 ```
 #include<stdlib.h>
 #include<stdio.h>
@@ -68,5 +68,49 @@ int main(int argc, char *argv[])
 
 	t1 = getchar();
 	return 0;
+}
+```
+EXAMPLE (C-Sharp Programming)
+```
+namespace temp_program
+{
+	/*
+	
+	<YOU CAN ALSO COPY 'AES' Class here and undo the comment lines, if you don't want to keep AES Class in different file>
+	<IF you want to keep the AES Class in different, make sure you have same 'namespace' in both files>
+	
+	*/
+	class Program
+	{
+		static public AES d2 = new AES();
+		static void Main(string[] args)
+		{
+			// In C-Sharp code, I didn't have to pass 'Key_size', as I take the Key size from 'Key.Length' variable from byte array
+			// But make sure to pass exact number of data bytes (16 bytes) and,
+			// exact number of key bytes you want to use (any key whose length is divisible by 4)
+			
+			// 'AES_Encrypt' will return the encrypted as byte array | Here I used a small function to convert string to byte array 'sbytes'
+			byte[] enc_data = d2.AES_Encrypt(sbytes("Hello How are u?"), sbytes("ffffffffffffffffffffffff"));
+			
+			// Just like 'AES_Encrypt', 'AES_Decrypt' will return the decrypted data
+            		byte[] dec_data = d2.AES_Decrypt(enc_data, sbytes("ffffffffffffffffffffffff"));
+			
+			for (int i1 = 0; i1 < 16; i1++)
+				Console.Write(dec_data[i1]);
+			
+			Console.ReadLine();
+		}
+		
+		static byte[] sbytes(string a)
+		{
+			    byte[] b;
+			    int i, j;
+			    j = a.Length;
+			    b = new byte[j];
+			    for (i = 0; i < j; i++)
+					b[i] = (byte)a[i];
+			    return b;
+		}
+	}
 }
 ```

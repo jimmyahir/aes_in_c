@@ -1,3 +1,5 @@
+namespace temp_program
+{
 public class AES
     {
         byte[] _2447_AES_sbox = new byte[256]
@@ -234,3 +236,4 @@ public class AES
             return ret2;
         }
     }
+}

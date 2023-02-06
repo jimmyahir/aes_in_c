@@ -32,7 +32,7 @@ AES implementation in C programming language for 128, 192 and 256-bits key sizes
   
   
 EXAMPLE:
-_
+```
 #include<stdlib.h>
 #include<stdio.h>
 #include"AES.h"
@@ -67,4 +67,5 @@ int main(int argc, char *argv[])
 
 	t1 = getchar();
 	return 0;
-}_
+}
+```

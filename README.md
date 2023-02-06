@@ -1,5 +1,5 @@
-# aes_in_c
-AES implementation in C programming language for 128, 192 and 256-bits key sizes. (You can also bigger keys, like 512 bits or even 1024 bytes (way bigger)).
+# AES 
+AES implementation in C and C# programming language for 128, 192 and 256-bits key sizes. (You can also use bigger keys, like 512 bits or even 1024 bytes (way bigger)).
 
 "AES.h" Header file contains following functions:
 
@@ -43,6 +43,7 @@ int main(int argc, char *argv[])
 	unsigned char *data, *key, *enc_data, *dec_data;
   
 	//  copying clear data and key into variables (I don't know why I have to use this way, my IDE wasn't accepting otherwise)
+	//  Make sure to give exact 16 bytes of data when passing to and calling 'AES_Encrypt' because I didn't do any padding
 	data = (unsigned char*)malloc(16 * sizeof(unsigned char));
 	key = (unsigned char*)malloc(24 * sizeof(unsigned char)); //  Here I allocated only 24 bytes because I used 192 bits (24 bytes) key for encryption
 	for (int i = 0; i < 16; i++)

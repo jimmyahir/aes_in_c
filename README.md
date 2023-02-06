@@ -3,11 +3,11 @@ AES implementation in C programming language for 128, 192 and 256-bits key sizes
 
 "AES.h" Header file contains following functions:
 
-1) unsigned char _2447_AES_colmul(unsigned char a, unsigned char b)
+1) unsigned char **_2447_AES_colmul**(unsigned char a, unsigned char b)
   I use this function to calculate byte multiplication in Galois field while doing Mix Colulmns operation
   To use this function, you need to pass two different bytes and it will return multiplied value
   
-2) void AES_Encrypt(unsigned char* Data, unsigned char* Key, int Key_size, unsigned char **ret)
+2) void **AES_Encrypt**(unsigned char* Data, unsigned char* Key, int Key_size, unsigned char **ret)
   To encrypt any data in AES, use this function.
   'Data' variable will be your data that you want to encrypt.
   'Key' is the Key used to encrypt your data in AES.
@@ -17,17 +17,17 @@ AES implementation in C programming language for 128, 192 and 256-bits key sizes
         There is no limit on how big you want your key be, the only limit is integer max value it can take.
   'ret' is returning variable, which will have encrypted data.
   
-3) void AES_Decrypt(unsigned char* Encrypted_Data, unsigned char* Key, int Key_size, unsigned char** ret)
+3) void **AES_Decrypt**(unsigned char* Encrypted_Data, unsigned char* Key, int Key_size, unsigned char** ret)
   'Encrypted_Data' variable will be your encrypted data that you want to decrypt.
   'Key' and 'Key_size' parameters are same as function 'AES_Encrypt'.
   'ret' is returning variable, which will have decrypted data.
   
 "AES.h" Header file also contains two following variables:
 
-1) unsigned char _2447_AES_sbox[256]
+1) unsigned char **_2447_AES_sbox**[256]
   All sbox values which is used in AES_Encrypt function in the header file.
   
-1) unsigned char _2447_AES_isbox[256]
+1) unsigned char **_2447_AES_isbox**[256]
   All inverse sbox values which is used in AES_Decrypt function in the header file.
   
   
@@ -44,7 +44,7 @@ int main(int argc, char *argv[])
   
 	//  copying clear data and key into variables (I don't know why I have to use this way, my IDE wasn't accepting otherwise)
 	data = (unsigned char*)malloc(16 * sizeof(unsigned char));
-	key = (unsigned char*)malloc(24 * sizeof(unsigned char)); //  Here I allocated only 24 bytes because I am use 192 bits (24 bytes) key for encryption
+	key = (unsigned char*)malloc(24 * sizeof(unsigned char)); //  Here I allocated only 24 bytes because I used 192 bits (24 bytes) key for encryption
 	for (int i = 0; i < 16; i++)
 		data[i] = data1[i];
 	for (int i = 0; i < 24; i++)

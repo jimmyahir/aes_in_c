@@ -66,7 +66,7 @@ void AES_Encrypt(unsigned char* Data, unsigned char* Key, int Key_size, unsigned
 	rounds = ((Key_size / 4) + 6);
 	rconst = (unsigned char*)malloc((sizeof(unsigned char)) * rounds);
 	rconst[0] = 1;
-	for (int i = 1; i < rounds; i++) {
+	for (i = 1; i < rounds; i++) {
 		rconst[i] = rconst[i - 1];
 		if ((rconst[i] & 0x80) == 0x80) {
 			rconst[i] <<= 1;
@@ -145,7 +145,7 @@ void AES_Decrypt(unsigned char* Encrypted_Data, unsigned char* Key, int Key_size
 	rounds = ((Key_size / 4) + 6);
 	rconst = (unsigned char*)malloc((sizeof(unsigned char)) * rounds);
 	rconst[0] = 1;
-	for (int i = 1; i < rounds; i++) {
+	for (i = 1; i < rounds; i++) {
 		rconst[i] = rconst[i - 1];
 		if ((rconst[i] & 0x80) == 0x80) {
 			rconst[i] <<= 1;

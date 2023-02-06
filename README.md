@@ -67,5 +67,4 @@ int main(int argc, char *argv[])
 
 	t1 = getchar();
 	return 0;
-}
-_
+}_

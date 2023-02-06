@@ -1,5 +1,5 @@
 # aes_in_c
-AES implementation in C programming language for 128, 192 and 256-bits key sizes.
+AES implementation in C programming language for 128, 192 and 256-bits key sizes. (You can also bigger keys, like 512 bits or even 1024 bytes (way bigger)).
 
 "AES.h" Header file contains following functions:
 
@@ -32,7 +32,7 @@ AES implementation in C programming language for 128, 192 and 256-bits key sizes
   
   
   EXAMPLE:
-  
+<code>
 #include<stdlib.h>
 #include<stdio.h>
 #include"AES.h"
@@ -66,3 +66,4 @@ int main(int argc, char *argv[])
 	t1 = getchar();
 	return 0;
 }
+</code>

@@ -31,39 +31,41 @@ AES implementation in C programming language for 128, 192 and 256-bits key sizes
   All inverse sbox values which is used in AES_Decrypt function in the header file.
   
   
-  EXAMPLE:
-<code>
+EXAMPLE:
+
 #include<stdlib.h>
 #include<stdio.h>
 #include"AES.h"
 
 int main(int argc, char *argv[])
 {
-  const char* data1 = "Hello How are u?", *key1 = "ffffffffffffffffffffffff";
+	const char* data1 = "Hello How are u?", *key1 = "ffffffffffffffffffffffff";
 	unsigned char *data, *key, *enc_data, *dec_data;
   
-  //  copying clear data and key into variables (I don't know why I have to use this way, my IDE wasn't accepting otherwise)
-  data = (unsigned char*)malloc(16 * sizeof(unsigned char));
+	//  copying clear data and key into variables (I don't know why I have to use this way, my IDE wasn't accepting otherwise)
+	data = (unsigned char*)malloc(16 * sizeof(unsigned char));
 	key = (unsigned char*)malloc(24 * sizeof(unsigned char)); //  Here I allocated only 24 bytes because I am use 192 bits (24 bytes) key for encryption
 	for (int i = 0; i < 16; i++)
 		data[i] = data1[i];
 	for (int i = 0; i < 24; i++)
 		key[i] = key1[i];
-	
-  //  Here, I used AES-192 bits key size, so I gave '24' in 3rd parameter because 24 bytes = 192 bits
+
+	//  Here, I used AES-192 bits key size, so I gave '24' in 3rd parameter because 24 bytes = 192 bits
 	AES_Encrypt(data, key, 24, &enc_data);
-	
-  //  To see the encrypted data in HEX form
-	for (int i = 0; i < 16; i++) printf("%x, ", enc_data[i]);
+
+	//  To see the encrypted data in HEX form
+	for (int i = 0; i < 16; i++)
+		printf("%x, ", enc_data[i]);
 	printf("\n");
-  
-  // Decrypting the encrypted data
+
+	// Decrypting the encrypted data
 	AES_Decrypt(enc_data, key, 24, &dec_data);
-	
-  //  To see the decrypted data in clear text form
-	for (int i = 0; i < 16; i++) printf("%c, ", dec_data[i]);
-	
+
+	//  To see the decrypted data in clear text form
+	for (int i = 0; i < 16; i++)
+		printf("%c, ", dec_data[i]);
+
 	t1 = getchar();
 	return 0;
 }
-</code>
+

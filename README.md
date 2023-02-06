@@ -77,7 +77,7 @@ namespace temp_program
 	/*
 	
 	<YOU CAN ALSO COPY 'AES' Class here and undo the comment lines, if you don't want to keep AES Class in different file>
-	<IF you want to keep the AES Class in different, make sure you have same 'namespace' in both files>
+	<IF you want to keep the AES Class in different file, make sure you have same 'namespace' in both files>
 	
 	*/
 	class Program
